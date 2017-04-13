@@ -23,13 +23,13 @@ import threading
 def prepare_image(img):
 
     img = img.reshape(Screenshot.SRC_H, Screenshot.SRC_W, Screenshot.SRC_D)
-    img = rgb2gray(img)
 
     return resize_image(img)
 
 
 def resize_image(img):
 
+    im = rgb2gray(img)
     im = Image.fromarray(img, 'L')
     im = im.resize((Screenshot.IMG_W, Screenshot.IMG_H))
 
